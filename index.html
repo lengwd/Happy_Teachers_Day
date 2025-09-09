@@ -17,10 +17,12 @@
             font-size: 3em;
             margin-top: 60px;
             margin-bottom: 0.2em;
+            letter-spacing: 5px;
         }
         h2 {
             font-size: 2em;
             margin-bottom: 1em;
+            font-weight: 500;
         }
         .emoji-row {
             font-size: 2em;
@@ -50,8 +52,12 @@
             width: 70px;
             height: 120px;
             position: relative;
+            transition: transform 0.2s;
         }
-        /* 简单的火柴人绘制 */
+        .stick-figure:hover {
+            transform: scale(1.1) rotate(-5deg);
+        }
+        /* 火柴人绘制 */
         .head {
             position: absolute;
             top: 10px;
@@ -118,25 +124,70 @@
             left: 60px;
             font-size: 1.2em;
         }
+        .flower {
+            position: absolute;
+            top: 10px;
+            left: 45px;
+            font-size: 1.2em;
+        }
+        .skirt {
+            position: absolute;
+            top: 70px;
+            left: 20px;
+            width: 30px;
+            height: 40px;
+            background: #fff;
+            border-radius: 0 0 30px 30px;
+            opacity: 0.2;
+        }
+        .name-label {
+            position: absolute;
+            top: 110px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1em;
+            color: #ffe066;
+            background: rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 2px 10px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+        .teacher-label {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.1em;
+            color: #fffa90;
+            background: #7b6ee9;
+            border-radius: 10px;
+            padding: 4px 12px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+        }
     </style>
 </head>
 <body>
-    <h1>金老师</h1>
+    <h1>金老师！</h1>
     <h2>教师节快乐！</h2>
-    <div class="emoji-row">🌹 🌻 🌷</div>
+    <div class="emoji-row">🌻💐🎉</div>
     <div class="content">
-        亲爱的金老师，您是我们心中最亮的明星✨<br>
-        您的每一句话都如甘露般滋润着我们的心田<br>
-        感谢您的悉心教导和无私奉献<br>
-        愿您身体健康，工作顺利
+        嘻嘻！今天是教师节，<br>
+        金老师，您就是我们的超级英雄！🦸‍♂️<br>
+        小丁的脑洞、达子的段子、小何的可爱、小金的活力，<br>
+        都在您的悉心教导下闪闪发光！<br>
+        感谢您把我们从“小迷糊”带成了“小机灵”！<br>
+        祝您每天都开心，永远元气满满！
     </div>
     <div class="heart-row">
-        ❤️ 桃李满天下，幸福永相伴 ❤️
+        ❤️ 金老师最棒！桃李满天下，快乐常伴身边！❤️
     </div>
     <div class="date">
         2025年9月10日 · 教师节
     </div>
     <div class="stick-figures">
+        <!-- 小丁 -->
         <div class="stick-figure">
             <div class="head"></div>
             <div class="body"></div>
@@ -145,7 +196,9 @@
             <div class="leg-left"></div>
             <div class="leg-right"></div>
             <div class="apple">🍎</div>
+            <div class="name-label">小丁</div>
         </div>
+        <!-- 达子 -->
         <div class="stick-figure">
             <div class="head"></div>
             <div class="body"></div>
@@ -153,7 +206,10 @@
             <div class="arm-right"></div>
             <div class="leg-left"></div>
             <div class="leg-right"></div>
+            <div class="flower">🌼</div>
+            <div class="name-label">达子</div>
         </div>
+        <!-- 金老师 -->
         <div class="stick-figure">
             <div class="head"></div>
             <div class="body"></div>
@@ -162,7 +218,9 @@
             <div class="leg-left"></div>
             <div class="leg-right"></div>
             <div class="book">📖</div>
+            <div class="teacher-label">金老师</div>
         </div>
+        <!-- 小何 -->
         <div class="stick-figure">
             <div class="head"></div>
             <div class="body"></div>
@@ -170,7 +228,10 @@
             <div class="arm-right"></div>
             <div class="leg-left"></div>
             <div class="leg-right"></div>
+            <div class="skirt"></div>
+            <div class="name-label">小何</div>
         </div>
+        <!-- 小金 -->
         <div class="stick-figure">
             <div class="head"></div>
             <div class="body"></div>
@@ -179,6 +240,7 @@
             <div class="leg-left"></div>
             <div class="leg-right"></div>
             <div class="star">⭐</div>
+            <div class="name-label">小金</div>
         </div>
     </div>
 </body>
