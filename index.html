@@ -3,245 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>教师节快乐 - 金老师</title>
+    <title>教师节快乐 - 金老师和小伙伴们</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&display=swap');
+        
         body {
-            background: linear-gradient(135deg, #7b6ee9 0%, #9b8eea 100%);
-            color: #fff;
-            font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            color: #333;
+            font-family: 'Fredoka One', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
             text-align: center;
             padding: 0;
             margin: 0;
+            overflow-x: hidden;
         }
+        
+        /* 飘动的装饰元素 */
+        .floating-emoji {
+            position: absolute;
+            font-size: 2em;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        .emoji1 { top: 10%; left: 10%; animation-delay: 0s; }
+        .emoji2 { top: 20%; right: 15%; animation-delay: 2s; }
+        .emoji3 { top: 60%; left: 5%; animation-delay: 4s; }
+        .emoji4 { top: 70%; right: 10%; animation-delay: 1s; }
+        
         h1 {
-            font-size: 3em;
+            font-size: 3.5em;
             margin-top: 60px;
             margin-bottom: 0.2em;
-            letter-spacing: 5px;
+            color: #ff6b6b;
+            text-shadow: 3px 3px 0px #fff, 6px 6px 10px rgba(0,0,0,0.1);
+            animation: bounce 2s ease-in-out infinite;
         }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
         h2 {
-            font-size: 2em;
+            font-size: 2.2em;
             margin-bottom: 1em;
-            font-weight: 500;
+            color: #4ecdc4;
+            text-shadow: 2px 2px 0px #fff;
         }
+        
         .emoji-row {
-            font-size: 2em;
+            font-size: 2.5em;
             margin-bottom: 1em;
+            animation: wiggle 3s ease-in-out infinite;
         }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(2deg); }
+            75% { transform: rotate(-2deg); }
+        }
+        
         .content {
-            font-size: 1.3em;
-            line-height: 2;
+            font-size: 1.2em;
+            line-height: 2.2;
             margin-bottom: 1.5em;
+            color: #555;
+            background: rgba(255,255,255,0.8);
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
         }
+        
         .heart-row {
-            font-size: 1.5em;
+            font-size: 1.8em;
             margin-bottom: 1em;
+            color: #ff6b6b;
+            animation: pulse 2s ease-in-out infinite;
         }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
         .date {
             margin-top: 2em;
-            font-size: 1em;
+            font-size: 1.1em;
             letter-spacing: 2px;
+            color: #666;
         }
-        .stick-figures {
+        
+        .characters {
             margin-top: 3em;
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 60px;
+            flex-wrap: wrap;
+            padding: 20px;
         }
-        .stick-figure {
-            width: 70px;
-            height: 120px;
+        
+        .character {
             position: relative;
-            transition: transform 0.2s;
+            animation: characterBounce 4s ease-in-out infinite;
         }
-        .stick-figure:hover {
-            transform: scale(1.1) rotate(-5deg);
+        
+        .character:nth-child(1) { animation-delay: 0s; }
+        .character:nth-child(2) { animation-delay: 0.8s; }
+        .character:nth-child(3) { animation-delay: 1.6s; }
+        .character:nth-child(4) { animation-delay: 2.4s; }
+        .character:nth-child(5) { animation-delay: 3.2s; }
+        
+        @keyframes characterBounce {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-15px) scale(1.05); }
         }
-        /* 火柴人绘制 */
-        .head {
+        
+        /* 小丁 - 活泼男孩 */
+        .xiaoding {
+            font-size: 4em;
+            color: #4ecdc4;
+        }
+        
+        /* 达子 - 运动男孩 */
+        .dazi {
+            font-size: 4em;
+            color: #45b7d1;
+        }
+        
+        /* 金老师 - 温和老师 */
+        .teacher {
+            font-size: 4.5em;
+            color: #f39c12;
+            position: relative;
+        }
+        
+        .teacher::after {
+            content: "👑";
             position: absolute;
-            top: 10px;
-            left: 20px;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: 3px solid #fff;
-        }
-        .body {
-            position: absolute;
-            top: 40px;
-            left: 34px;
-            width: 3px;
-            height: 50px;
-            background: #fff;
-        }
-        .arm-left, .arm-right {
-            position: absolute;
-            top: 55px;
-            width: 30px;
-            height: 3px;
-            background: #fff;
-        }
-        .arm-left {
-            left: 5px;
-            transform: rotate(-25deg);
-        }
-        .arm-right {
-            left: 35px;
-            transform: rotate(25deg);
-        }
-        .leg-left, .leg-right {
-            position: absolute;
-            top: 90px;
-            width: 3px;
-            height: 30px;
-            background: #fff;
-        }
-        .leg-left {
-            left: 25px;
-            transform: rotate(-15deg);
-        }
-        .leg-right {
-            left: 45px;
-            transform: rotate(15deg);
-        }
-        /* 火柴人装饰 */
-        .apple {
-            position: absolute;
-            top: 35px;
-            left: 0px;
-            font-size: 1.5em;
-        }
-        .book {
-            position: absolute;
-            top: 60px;
-            left: 50px;
-            font-size: 1.2em;
-        }
-        .star {
-            position: absolute;
-            top: 105px;
-            left: 60px;
-            font-size: 1.2em;
-        }
-        .flower {
-            position: absolute;
-            top: 10px;
-            left: 45px;
-            font-size: 1.2em;
-        }
-        .skirt {
-            position: absolute;
-            top: 70px;
-            left: 20px;
-            width: 30px;
-            height: 40px;
-            background: #fff;
-            border-radius: 0 0 30px 30px;
-            opacity: 0.2;
-        }
-        .name-label {
-            position: absolute;
-            top: 110px;
+            top: -20px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 1em;
-            color: #ffe066;
-            background: rgba(0,0,0,0.1);
-            border-radius: 8px;
-            padding: 2px 10px;
-            letter-spacing: 2px;
-            font-weight: bold;
+            font-size: 0.6em;
+            animation: crownShine 3s ease-in-out infinite;
         }
-        .teacher-label {
+        
+        @keyframes crownShine {
+            0%, 100% { opacity: 1; transform: translateX(-50%) rotate(0deg); }
+            50% { opacity: 0.7; transform: translateX(-50%) rotate(10deg); }
+        }
+        
+        /* 小何 - 可爱女孩 */
+        .xiaohe {
+            font-size: 4em;
+            color: #e74c3c;
+        }
+        
+        /* 小金 - 高个男孩 */
+        .xiaojin {
+            font-size: 4em;
+            color: #9b59b6;
+        }
+        
+        .character-name {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #333;
+            font-weight: bold;
+            text-shadow: 1px 1px 0px #fff;
+        }
+        
+        .character-trait {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        /* 特殊装饰 */
+        .speech-bubble {
             position: absolute;
-            top: -30px;
+            background: #fff;
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 0.8em;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            top: -60px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 1.1em;
-            color: #fffa90;
-            background: #7b6ee9;
-            border-radius: 10px;
-            padding: 4px 12px;
-            font-weight: bold;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+            white-space: nowrap;
+            animation: bubblePop 6s ease-in-out infinite;
+        }
+        
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #fff;
+        }
+        
+        @keyframes bubblePop {
+            0%, 80%, 100% { opacity: 0; transform: translateX(-50%) scale(0.8); }
+            10%, 70% { opacity: 1; transform: translateX(-50%) scale(1); }
+        }
+        
+        .fun-message {
+            margin-top: 40px;
+            font-size: 1.3em;
+            color: #ff6b6b;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbow 3s ease-in-out infinite;
+        }
+        
+        @keyframes rainbow {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(180deg); }
         }
     </style>
 </head>
 <body>
-    <h1>金老师！</h1>
-    <h2>教师节快乐！</h2>
-    <div class="emoji-row">🌻💐🎉</div>
+    <!-- 飘动装饰 -->
+    <div class="floating-emoji emoji1">🎈</div>
+    <div class="floating-emoji emoji2">⭐</div>
+    <div class="floating-emoji emoji3">🌸</div>
+    <div class="floating-emoji emoji4">🎊</div>
+    
+    <h1>超棒的金老师！</h1>
+    <h2>教师节快乐呀～ 🎉</h2>
+    <div class="emoji-row">🌈 ✨ 🎭 ✨ 🌈</div>
+    
     <div class="content">
-        嘻嘻！今天是教师节，<br>
-        金老师，您就是我们的超级英雄！🦸‍♂️<br>
-        小丁的脑洞、达子的段子、小何的可爱、小金的活力，<br>
-        都在您的悉心教导下闪闪发光！<br>
-        感谢您把我们从“小迷糊”带成了“小机灵”！<br>
-        祝您每天都开心，永远元气满满！
+        哇哦！金老师您真的太厉害啦！🤩<br>
+        您就像魔法师一样，让枯燥的知识变得超有趣～<br>
+        我们这群小可爱都被您"迷住"了呢！😆<br>
+        希望您每天都开开心心，笑容满满！💕
     </div>
+    
     <div class="heart-row">
-        ❤️ 金老师最棒！桃李满天下，快乐常伴身边！❤️
+        💖 我们的超级英雄老师 💖
     </div>
+    
+    <div class="characters">
+        <div class="character">
+            <div class="xiaoding">🧒</div>
+            <div class="character-name">小丁</div>
+            <div class="character-trait">活力小子</div>
+            <div class="speech-bubble">老师最棒！</div>
+        </div>
+        
+        <div class="character">
+            <div class="dazi">💪</div>
+            <div class="character-name">达子</div>
+            <div class="character-trait">运动健将</div>
+            <div class="speech-bubble">感谢老师！</div>
+        </div>
+        
+        <div class="character teacher">
+            <div>👨‍🏫</div>
+            <div class="character-name">金老师</div>
+            <div class="character-trait">我们的超级老师</div>
+            <div class="speech-bubble">谢谢大家～</div>
+        </div>
+        
+        <div class="character">
+            <div class="xiaohe">👧</div>
+            <div class="character-name">小何</div>
+            <div class="character-trait">甜美少女</div>
+            <div class="speech-bubble">老师辛苦了！</div>
+        </div>
+        
+        <div class="character">
+            <div class="xiaojin">🙋‍♂️</div>
+            <div class="character-name">小金</div>
+            <div class="character-trait">高个暖男</div>
+            <div class="speech-bubble">节日快乐！</div>
+        </div>
+    </div>
+    
+    <div class="fun-message">
+        🎪 这是我们给您准备的小惊喜哦！🎪
+    </div>
+    
     <div class="date">
-        2025年9月10日 · 教师节
-    </div>
-    <div class="stick-figures">
-        <!-- 小丁 -->
-        <div class="stick-figure">
-            <div class="head"></div>
-            <div class="body"></div>
-            <div class="arm-left"></div>
-            <div class="arm-right"></div>
-            <div class="leg-left"></div>
-            <div class="leg-right"></div>
-            <div class="apple">🍎</div>
-            <div class="name-label">小丁</div>
-        </div>
-        <!-- 达子 -->
-        <div class="stick-figure">
-            <div class="head"></div>
-            <div class="body"></div>
-            <div class="arm-left"></div>
-            <div class="arm-right"></div>
-            <div class="leg-left"></div>
-            <div class="leg-right"></div>
-            <div class="flower">🌼</div>
-            <div class="name-label">达子</div>
-        </div>
-        <!-- 金老师 -->
-        <div class="stick-figure">
-            <div class="head"></div>
-            <div class="body"></div>
-            <div class="arm-left"></div>
-            <div class="arm-right"></div>
-            <div class="leg-left"></div>
-            <div class="leg-right"></div>
-            <div class="book">📖</div>
-            <div class="teacher-label">金老师</div>
-        </div>
-        <!-- 小何 -->
-        <div class="stick-figure">
-            <div class="head"></div>
-            <div class="body"></div>
-            <div class="arm-left"></div>
-            <div class="arm-right"></div>
-            <div class="leg-left"></div>
-            <div class="leg-right"></div>
-            <div class="skirt"></div>
-            <div class="name-label">小何</div>
-        </div>
-        <!-- 小金 -->
-        <div class="stick-figure">
-            <div class="head"></div>
-            <div class="body"></div>
-            <div class="arm-left"></div>
-            <div class="arm-right"></div>
-            <div class="leg-left"></div>
-            <div class="leg-right"></div>
-            <div class="star">⭐</div>
-            <div class="name-label">小金</div>
-        </div>
+        2025年9月10日 · 最特别的教师节 🌟
     </div>
 </body>
 </html>
