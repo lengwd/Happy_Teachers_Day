@@ -34,6 +34,8 @@
         .emoji2 { top: 20%; right: 15%; animation-delay: 2s; }
         .emoji3 { top: 60%; left: 5%; animation-delay: 4s; }
         .emoji4 { top: 70%; right: 10%; animation-delay: 1s; }
+        .emoji5 { top: 40%; left: 8%; animation-delay: 3s; }
+        .emoji6 { top: 50%; right: 8%; animation-delay: 5s; }
         
         h1 {
             font-size: 3.5em;
@@ -73,12 +75,31 @@
             line-height: 2.2;
             margin-bottom: 1.5em;
             color: #555;
-            background: rgba(255,255,255,0.8);
-            padding: 20px;
-            border-radius: 20px;
+            background: rgba(255,255,255,0.9);
+            padding: 25px;
+            border-radius: 25px;
             margin: 20px auto;
-            max-width: 600px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            max-width: 650px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+            border: 3px solid rgba(255,255,255,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shine 4s ease-in-out infinite;
+        }
+        
+        @keyframes shine {
+            0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
         
         .heart-row {
@@ -179,40 +200,34 @@
             text-shadow: 1px 1px 0px #fff;
         }
         
-        .character-trait {
-            font-size: 0.9em;
-            color: #666;
-            margin-top: 5px;
-            font-style: italic;
-        }
-        
         /* 特殊装饰 */
         .speech-bubble {
             position: absolute;
-            background: #fff;
+            background: linear-gradient(135deg, #fff, #f8f9fa);
             border-radius: 20px;
             padding: 10px 15px;
             font-size: 0.8em;
             color: #333;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
             top: -60px;
             left: 50%;
             transform: translateX(-50%);
             white-space: nowrap;
             animation: bubblePop 6s ease-in-out infinite;
+            border: 2px solid rgba(255,182,193,0.5);
         }
         
         .speech-bubble::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -12px;
             left: 50%;
             transform: translateX(-50%);
             width: 0;
             height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-top: 10px solid #fff;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-top: 12px solid #fff;
         }
         
         @keyframes bubblePop {
@@ -235,6 +250,49 @@
             0%, 100% { filter: hue-rotate(0deg); }
             50% { filter: hue-rotate(180deg); }
         }
+        
+        /* 新增的有趣细节 */
+        .sparkle {
+            position: absolute;
+            font-size: 1.5em;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1) rotate(180deg); }
+        }
+        
+        .sparkle1 { top: 15%; left: 20%; animation-delay: 0.5s; }
+        .sparkle2 { top: 25%; right: 25%; animation-delay: 1.5s; }
+        .sparkle3 { top: 65%; left: 15%; animation-delay: 2.5s; }
+        
+        /* 心形飘动效果 */
+        .heart-float {
+            position: absolute;
+            font-size: 1.2em;
+            color: #ff69b4;
+            animation: heartFloat 8s linear infinite;
+        }
+        
+        @keyframes heartFloat {
+            0% { 
+                transform: translateY(100vh) translateX(0px) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { 
+                transform: translateY(-100px) translateX(50px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .heart1 { left: 10%; animation-delay: 0s; }
+        .heart2 { left: 30%; animation-delay: 2s; }
+        .heart3 { left: 50%; animation-delay: 4s; }
+        .heart4 { left: 70%; animation-delay: 6s; }
+        .heart5 { left: 90%; animation-delay: 8s; }
     </style>
 </head>
 <body>
@@ -243,15 +301,28 @@
     <div class="floating-emoji emoji2">⭐</div>
     <div class="floating-emoji emoji3">🌸</div>
     <div class="floating-emoji emoji4">🎊</div>
+    <div class="floating-emoji emoji5">🎯</div>
+    <div class="floating-emoji emoji6">🎨</div>
+    
+    <!-- 闪烁装饰 -->
+    <div class="sparkle sparkle1">✨</div>
+    <div class="sparkle sparkle2">💫</div>
+    <div class="sparkle sparkle3">⭐</div>
+    
+    <!-- 飘动的心形 -->
+    <div class="heart-float heart1">💕</div>
+    <div class="heart-float heart2">💖</div>
+    <div class="heart-float heart3">💝</div>
+    <div class="heart-float heart4">💗</div>
+    <div class="heart-float heart5">💘</div>
     
     <h1>超棒的金老师！</h1>
     <h2>教师节快乐呀～ 🎉</h2>
     <div class="emoji-row">🌈 ✨ 🎭 ✨ 🌈</div>
     
     <div class="content">
-        哇哦！金老师您真的太厉害啦！🤩<br>
-        您就像魔法师一样，让枯燥的知识变得超有趣～<br>
-        我们这群小可爱都被您"迷住"了呢！😆<br>
+        超好脾气超耐心的金老师！！！🤩<br>
+        我们这群小糊涂犯错都靠您宽容！😆<br>
         希望您每天都开开心心，笑容满满！💕
     </div>
     
@@ -263,35 +334,29 @@
         <div class="character">
             <div class="xiaoding">🧒</div>
             <div class="character-name">小丁</div>
-            <div class="character-trait">活力小子</div>
             <div class="speech-bubble">老师最棒！</div>
         </div>
         
         <div class="character">
-            <div class="dazi">💪</div>
+            <div class="dazi">👦</div>
             <div class="character-name">达子</div>
-            <div class="character-trait">运动健将</div>
             <div class="speech-bubble">感谢老师！</div>
         </div>
         
         <div class="character teacher">
             <div>👨‍🏫</div>
             <div class="character-name">金老师</div>
-            <div class="character-trait">我们的超级老师</div>
-            <div class="speech-bubble">谢谢大家～</div>
         </div>
         
         <div class="character">
             <div class="xiaohe">👧</div>
             <div class="character-name">小何</div>
-            <div class="character-trait">甜美少女</div>
             <div class="speech-bubble">老师辛苦了！</div>
         </div>
         
         <div class="character">
             <div class="xiaojin">🙋‍♂️</div>
             <div class="character-name">小金</div>
-            <div class="character-trait">高个暖男</div>
             <div class="speech-bubble">节日快乐！</div>
         </div>
     </div>
